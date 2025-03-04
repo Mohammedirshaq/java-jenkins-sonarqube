@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = "java-sonarqube"
-        ARTIFACT_REPO = ""
+        ARTIFACT_REPO = "us-central1-docker.pkg.dev/sam-452209/hero"
         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp')
     }
     stages {
