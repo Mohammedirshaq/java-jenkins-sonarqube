@@ -43,13 +43,13 @@
     
 
 - name: Pull Docker image for pyweb1
-  command: docker pull ganesh6498/java-sonarqube:{{ build_number }}
+  command: docker pull mdirshaq/java-sonarqube:{{ build_number }}
   when:
     - ansible_os_family == "RedHat"
    
 
 - name: Run the container
-  command: docker run -it -d -p 8085:8081 ganesh6498/java-sonarqube:{{ build_number }}
+  command: docker run -it -d -p 8085:8081 mdirshaq/java-sonarqube:{{ build_number }}
   when:
     - ansible_os_family == "RedHat"
   
