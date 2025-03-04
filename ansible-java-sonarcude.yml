@@ -1,5 +1,5 @@
 ---
-- hosts: @:sam_owner_team_xyz
+- hosts: sam_owner_team_xyz
   become: true
   roles:
     - java-sonrqube
