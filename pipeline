@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = "java-sonarqube"
-        ARTIFACT_REPO = "us-central1-docker.pkg.dev/sam-452209/hero"
+        ARTIFACT_REPO = "us-east1-docker.pkg.dev/sam-452209/hero"
         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp')
     }
     stages {
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
                 gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-                gcloud auth configure-docker us-central1-docker.pkg.dev
+                gcloud auth configure-docker us-east1-docker.pkg.dev
                 '''
             }
         }
