@@ -2,7 +2,7 @@ provider "google" {
   project = "sam-452209"
   region  = "us-east1"
   zone    = "us-east1-b"
-  credentials = file("file.json")
+  
 }
 
 locals {
