@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = "java-sonarqube"
-        ARTIFACT_REPO = "us-east1-docker.pkg.dev/sam-452209/hero"
+        ARTIFACT_REPO = "us-east1-docker.pkg.dev/sam-452209/test"
         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp')
     }
     stages {
@@ -32,8 +32,8 @@ pipeline {
                 withSonarQubeEnv('sonarqube') { // Use the name configured in Jenkins settings
                     sh '''
                            mvn clean verify sonar:sonar \
-                                  -Dsonar.projectKey=web1 \
-                                  -Dsonar.projectName='web1' \
+                                  -Dsonar.projectKey=test \
+                                  -Dsonar.projectName='test' \
                                   -Dsonar.host.url=http://35.211.186.41:9000 \
                                   -Dsonar.token=squ_96966628d9d13dd5ca4fb229d8db0b200da55534
                     '''
