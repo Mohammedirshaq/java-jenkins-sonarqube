@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = "java-sonarqube"
-        ARTIFACT_REPO = "us-central1-docker.pkg.dev/sam-452209/my-docker-1"
+        ARTIFACT_REPO = "us-east1-docker.pkg.dev/sam-452209/test"
         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp')
     }
     stages {
@@ -34,8 +34,7 @@ pipeline {
                            mvn clean verify sonar:sonar \
                               -Dsonar.projectKey=java5 \
                               -Dsonar.projectName='java5' \
-                              -Dsonar.host.url=http://35.208.183.106:9000 \
-                              -Dsonar.token=squ_0a7bbd396615376a3b5bad329f2cc8902c2245ec
+                              -Dsonar.host.url=http://35.211.186.41:9000 
                     '''
                 }
             }
@@ -71,8 +70,8 @@ pipeline {
         stage("Docker Tags & Push (Python App)") {
             steps {
                 sh '''
-                docker tag ${IMAGE_NAME} ganesh6498/${IMAGE_NAME}:${BUILD_NUMBER}
-                docker push ganesh6498/${IMAGE_NAME}:${BUILD_NUMBER}
+                docker tag ${IMAGE_NAME} mdirshaq29/${IMAGE_NAME}:${BUILD_NUMBER}
+                docker push mdirshaq28/${IMAGE_NAME}:${BUILD_NUMBER}
 
                 docker tag ${IMAGE_NAME} ${ARTIFACT_REPO}/${IMAGE_NAME}:${BUILD_NUMBER}
                 docker push ${ARTIFACT_REPO}/${IMAGE_NAME}:${BUILD_NUMBER}
