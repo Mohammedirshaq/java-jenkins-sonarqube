@@ -70,8 +70,8 @@ pipeline {
         stage("Docker Tags & Push (Python App)") {
             steps {
                 sh '''
-                docker tag ${IMAGE_NAME} mdirshaq28/${IMAGE_NAME}:${BUILD_NUMBER}
-                docker push mdirshaq28/${IMAGE_NAME}:${BUILD_NUMBER}
+                docker tag ${IMAGE_NAME} mdirshaq/${IMAGE_NAME}:${BUILD_NUMBER}
+                docker push mdirshaq/${IMAGE_NAME}:${BUILD_NUMBER}
 
                 docker tag ${IMAGE_NAME} ${ARTIFACT_REPO}/${IMAGE_NAME}:${BUILD_NUMBER}
                 docker push ${ARTIFACT_REPO}/${IMAGE_NAME}:${BUILD_NUMBER}
