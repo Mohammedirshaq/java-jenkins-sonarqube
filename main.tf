@@ -12,7 +12,7 @@ locals {
 resource "google_compute_instance" "inst1" {
   count        = length(local.l1)
   name         = local.l1[count.index]
-  machine_type = "e2-micro"
+  machine_type = "e2-medium"
 
   labels = {
     environment = "dev"
